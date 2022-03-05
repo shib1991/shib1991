@@ -4,8 +4,8 @@ function calc(a,b,c){
     }else if(a=="razn"){
         console.log(b-c);
     }else if (a=="del"){
-        if (c=0){
-        console.log("На ноль делить нельзя");    
+        if (c==0){
+        console.log('На ноль делить нельзя');    
         }else {
         console.log(b/c);
         }
@@ -18,7 +18,10 @@ function calc(a,b,c){
             console.log(b**c);
         }
     }
+    else {
+        console.log("unknown operation");
+    }
 }
 
-calc('multi',2,4);
+calc('del',2,0);
 

@@ -1,20 +1,27 @@
+let calculator = {
+    sum: "sum",
+    div: "div",
+    multi: "multi",
+    exp: "exp"
+}
+
 function calc(act,b,c){
     if (typeof act =="string"&& typeof b=="number"&&typeof c=="number" ){
         switch(act){
-            case "sum":
+            case calculator.sum:
                 console.log(b + c);
                 break;
-            case "div":
+            case calculator.div:
                 if (c == 0) {
                     console.log('На ноль делить нельзя');
                 } else {
                     console.log(b / c);
                 } 
                 break;
-            case "muliti":
+            case calculator.multi:
                 console.log(b * c);
                 break;
-            case "exp":
+            case calculator.exp:
                 if (c < 1) {
                     console.log("Степень < 1");
                 } else {
@@ -26,4 +33,4 @@ function calc(act,b,c){
     }else console.log('Не верные значания');
 }
 
-calc("div", 2, 0);
+calc("sum", 231, 12312);

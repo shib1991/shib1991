@@ -28,27 +28,46 @@ function deleteTask(del_tsk) {
 function showList() {
     console.log();
     console.log("DONE: ");
+    let count = 0;
     for (key in list) {
-        if (list[key] == "Done") console.log(key);
+        if (list[key] == "Done") {
+            console.log(`     ${key}`);
+            count++;
+        }
     }
+    if (count == 0) console.log(`-------`);
+
     console.log();
     console.log("TO DO: ");
+    count = 0;
     for (key in list) {
-        if (list[key] == "To Do") console.log(key);
+        if (list[key] == "To Do") {
+            console.log(`     ${key}`);
+            count++;
+        }
     }
+
+    if (count == 0) console.log(`-------`);
+
     console.log();
     console.log("IN PROGRESS: ");
+    count = 0;
     for (key in list) {
-        if (list[key] == "In Progress") console.log(key);
+        if (list[key] == "In Progress") {
+            console.log(`     ${key}`);
+            count++;
+        }
     }
+    if (count == 0) console.log(`-------`);
 }
 
-addTask("some shit");
-addTask("Пожевать Эвкалипт");
-addTask("Надрать тебе задницу");
-changeStatus("Пожевать Эвкалипт", "Done");
-changeStatus("some shit", "In progress");
-changeStatus("Надрать тебе задницу", "To Do");
-deleteTask("write a post");
+    addTask("some shit");
+    addTask("Пожевать Эвкалипт");
+    addTask("Надрать тебе задницу");
+    changeStatus("Надрать тебе задницу", "To Do")
+    changeStatus("Пожевать Эвкалипт", "Done");
+    changeStatus("some shit", "In progress");
+    deleteTask("write a post");
+    deleteTask("make a bed");
 
-showList();
+    showList();

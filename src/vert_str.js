@@ -9,4 +9,4 @@ function showVerticalMessage(str){
     }
     
     
-    showVerticalMessage("a12345678901112131415");
+    showVerticalMessage("марафон");

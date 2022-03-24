@@ -1,6 +1,6 @@
 function showVerticalMessage(str){
     let n=Number(str.length);
-    console.log(str[0].toUpperCase());
+    if (str[0]=='м')console.log(str[0].toUpperCase());
     
     for (let i=1; i<n; i++){
         console.log(str[i]);

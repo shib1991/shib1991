@@ -67,11 +67,11 @@ function showList() {
                 name: sts.name,
                 priority: sts.priority
             });
-        } else if (sts.status === 'In Progress') {
+        } else if (sts.status === "In Progress") {
             in_progress.push({
                 name: sts.name,
                 priority: sts.priority
-            });
+            })
         }
 
     };
@@ -99,29 +99,13 @@ function showList() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 addTask('do smth');
 addTask('Poest');
 changePriority("test", "low");
 changeStatus("do smth", "Done");
 changePriority("do smth", "high");
-addTask('Anzhumaniya');
-changePriority("Anzhumaniya", "low");
-changeStatus("Anzhumaniya", "In progress");
-
-
+addTask("Learn Js");
+changePriority("Learn Js", "high");
+changeStatus("Learn Js", "In Progress");
+changePriority("create a post","high");
 showList();

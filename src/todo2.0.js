@@ -53,7 +53,7 @@ function deleteTask(taskName) {
 
 
 function showList() {
-    let todo=[];
+    let todo = [];
     let done = [];
     let in_progress = [];
     for (let sts of list) {
@@ -75,14 +75,23 @@ function showList() {
         }
 
     };
-    if(!todo.find(tsk=>tsk.name)){
-        todo.push({name:"---",priority:"----"})
+    if (!todo.find(tsk => tsk.name)) {
+        todo.push({
+            name: "---",
+            priority: "----"
+        })
     };
-    if(!done.find(tsk=>tsk.name)){
-        done.push({name:"---",priority:"----"})
+    if (!done.find(tsk => tsk.name)) {
+        done.push({
+            name: "---",
+            priority: "----"
+        })
     };
-    if(!in_progress.find(tsk=>tsk.name)){
-        in_progress.push({name:"---",priority:"----"})
+    if (!in_progress.find(tsk => tsk.name)) {
+        in_progress.push({
+            name: "---",
+            priority: "----"
+        })
     };
 
 
@@ -96,6 +105,55 @@ function showList() {
     in_progress.forEach(item => console.log(`name: ${item.name} priority: ${item.priority}`));
 };
 
+function ShowBy(request) {
+    let array1 = [];
+    let array2 = [];
+    let array3 = [];
+    if (request === 'priority' || request === 'Priority') {
+        array1 = list.filter(i => i.priority === 'high');
+        array2 = list.filter(i => i.priority === 'low');
+        if (!array1.find(i => i.priority)) array1.push({
+            name: "----"
+        });
+        if (!array2.find(i => i.priority)) array2.push({
+            name: "----"
+        });
+    }
+    if (request === 'status' || request === 'Status') {
+        array1 = list.filter(i => i.status === 'To Do');
+        array2 = list.filter(i => i.status === 'Done');
+        array3 = list.filter(i => i.status === 'In Progress');
+        if (!array1.find(i => i.status)) array1.push({
+            name: "----"
+        });
+        if (!array2.find(i => i.status)) array2.push({
+            name: "----"
+        });
+        if (!array3.find(i => i.status)) array3.push({
+            name: "----",priority:"----"
+        });
+    }
+    if (request === 'priority' || request === 'Priority') {
+        console.log("High:");
+        array1.forEach(item => console.log(`name: ${item.name}   stsus: ${item.status}`));
+        console.log('');
+        console.log("Low:");
+        array2.forEach(item => console.log(`name: ${item.name}   status: ${item.status}`));
+
+    }
+    if (request === 'status' || request === 'Status') {
+        console.log("To Do:");
+        array1.forEach(item => console.log(`name: ${item.name}   priority: ${item.priority}`));
+        console.log('');
+        console.log("Done:");
+        array2.forEach(item => console.log(`name: ${item.name}   priority: ${item.priority}`));
+        console.log('');
+        console.log("In Progress:");
+        array3.forEach(item => console.log(`name: ${item.name}   priority: ${item.priority}`));
+    }
+
+};
+
 
 
 
@@ -106,6 +164,7 @@ changeStatus("do smth", "Done");
 changePriority("do smth", "high");
 addTask("Learn Js");
 changePriority("Learn Js", "high");
-changeStatus("Learn Js", "In Progress");
-changePriority("create a post","high");
-showList();
+changeStatus("Learn Js", "To Do");
+changePriority("create a post", "high");
+/* showList(); */
+ShowBy("Status");

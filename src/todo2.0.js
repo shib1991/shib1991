@@ -113,10 +113,12 @@ function ShowBy(request) {
         array1 = list.filter(i => i.priority === 'high');
         array2 = list.filter(i => i.priority === 'low');
         if (!array1.find(i => i.priority)) array1.push({
-            name: "----"
+            name: "----",
+            priority: "----"
         });
         if (!array2.find(i => i.priority)) array2.push({
-            name: "----"
+            name: "----",
+            priority: "----"
         });
     }
     if (request === 'status' || request === 'Status') {
@@ -124,18 +126,21 @@ function ShowBy(request) {
         array2 = list.filter(i => i.status === 'Done');
         array3 = list.filter(i => i.status === 'In Progress');
         if (!array1.find(i => i.status)) array1.push({
-            name: "----"
+            name: "----",
+            priority: "----"
         });
         if (!array2.find(i => i.status)) array2.push({
-            name: "----"
+            name: "----",
+            priority: "----"
         });
         if (!array3.find(i => i.status)) array3.push({
-            name: "----",priority:"----"
+            name: "----",
+            priority: "----"
         });
     }
     if (request === 'priority' || request === 'Priority') {
         console.log("High:");
-        array1.forEach(item => console.log(`name: ${item.name}   stsus: ${item.status}`));
+        array1.forEach(item => console.log(`name: ${item.name}   status: ${item.status}`));
         console.log('');
         console.log("Low:");
         array2.forEach(item => console.log(`name: ${item.name}   status: ${item.status}`));
